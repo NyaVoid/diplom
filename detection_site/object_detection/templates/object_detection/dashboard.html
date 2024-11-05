@@ -1,0 +1,23 @@
+{% extends 'object_detection/base_generic.html' %}
+
+{% block title %}Дашборд{% endblock %}
+
+{% block content %}
+    <h1>Ваши изображения</h1>
+    <a href="{% url 'add_image_feed' %}" class="btn btn-success mb-3">Загрузить изображение</a>
+
+    <div class="row">
+        {% for image in images %}
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="{{ image.image.url }}" class="card-img-top" alt="Image">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong>Обработано: </strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
